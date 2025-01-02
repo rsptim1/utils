@@ -19,7 +19,7 @@ void logPrint(char level, const char* file, int line, const char* fmt, ...);
 const char logInfoStr[] = "\x1b[32mINFO\x1b[0m ";
 const char logWarnStr[] = "\x1b[33mWARN\x1b[0m ";
 const char logErrStr[] = "\x1b[31mERROR\x1b[0m ";
-#elif
+#else
 const char logInfoStr[] = "INFO";
 const char logWarnStr[] = "WARN";
 const char logErrStr[] = "ERROR";
@@ -35,7 +35,7 @@ void logPrint(char level, const char* file, int line, const char* fmt, ...) {
 	}
 #ifdef LOG_COLOURS
 	if (file) printf("%s \x1b[90m%s:%i|\x1b[0m ", l, file, line);
-#elif
+#else
 	if (file) printf("%s %s:%i| ", l, file, line);
 #endif
 	else printf(l);
